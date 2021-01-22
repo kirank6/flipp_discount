@@ -1,1 +1,1 @@
-![Getting Started](./webpage_snapshot.png)
+![alt text](./webpage_snapshot.png)
