@@ -1,0 +1,14 @@
+<h1> Welcome to discount app! </h1>
+
+<h2>{{ note }}</h2>
+
+<form action = " ", method = "POST">
+    {% csrf_token %}
+    {{ pagesform }}
+  {% comment %} <label for= "item_name"> Item_Name: </label>
+  <input id = "item_name", type = "text", name = "item_name">
+  <label for= "zip_code"> Zip_Code: </label>
+  <input id = "item_name", type = "decimal", name = "zip_code">
+  </select> {% endcomment %}
+  <input type = "submit", value = "Search">
+</form>
