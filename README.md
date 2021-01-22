@@ -1,1 +1,1 @@
-![alt text](./webpage_snapshot.png)
+![](./webpage_snapshot.png)
