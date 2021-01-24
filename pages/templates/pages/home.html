@@ -2,7 +2,7 @@
 
 <h2>{{ note }}</h2>
 
-<form action = " ", method = "POST">
+<form action = "process", method = "POST">
     {% csrf_token %}
     {{ pagesform }}
   {% comment %} <label for= "item_name"> Item_Name: </label>
