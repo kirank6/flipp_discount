@@ -13,7 +13,7 @@ def homePageView(request):
             item_name = filled_form.cleaned_data['item_name']
             zip_code = filled_form.cleaned_data['zip_code']
             new_form = PagesForm()
-            #search_out = script_function(item_name, zip_code)
+            search_out = script_function(item_name, zip_code)
             return render(request, 'pages/home.html', \
                 {'pagesform':new_form,'note':note,'search_out':search_out})
     
