@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import PagesForm
@@ -7,13 +8,14 @@ import re
 from urllib.request import urlretrieve 
 from requests.utils import requote_uri 
 python_path = sys.executable
+from os.path import abspath, dirname, join
  
 
 
 
 def get_price(item, zip_code):
-    output = subprocess.check_output([python_path, 'webpage_backend_use.py', item, zip_code] \
-                   ).decode('utf-8')
+    output = subprocess.check_output([python_path, 'webpage_backend_use.py', item, zip_code], \
+                shell=True).decode('utf-8')
     
     output1 = output.split(', ')
     merchant = output1[0].strip("(")
@@ -21,6 +23,7 @@ def get_price(item, zip_code):
     url1 = output1[2].replace(")","")
     url2 = url1.strip()
     url = url2. strip(" '' ")
+    
     return merchant,price,url
 
 # Create your views here.
@@ -49,8 +52,3 @@ def processView(request):
 
     return render(request, 'pages/process.html', context)   
 
-# def script_function(post_from_form):
-#     print(post_from_form)
-#     return subprocess.check_call(['C:/Users/Ursa Major/Documents/Data_Science/Projects  \
-#                                   /SharpestMinds/Flipp_programs/webpage_backend_use.py'], post_from_form)
-    
