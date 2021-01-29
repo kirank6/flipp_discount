@@ -1,4 +1,14 @@
-class CustomS3Boto3Storage(S3Boto3Storage, ABC):
+import os   
+import io
+from django import storages
+from django import forms
+from django.core.files.storage import default_storage
+from django_backend.custom_storages import MediaStorage
+from django.contrib.staticfiles.storage import ManifestFilesMixin
+from storages.backends.s3boto3 import S3Boto3Storage
+from tempfile import SpooledTemporaryFile
+
+class CustomS3Boto3Storage(S3Boto3Storage):
     """
     This is our custom version of S3Boto3Storage that fixes a bug in
     boto3 where the passed in file is closed upon upload.
@@ -18,16 +28,13 @@ class CustomS3Boto3Storage(S3Boto3Storage, ABC):
         content.seek(0, os.SEEK_SET)
 
         # Create a temporary file that will write to disk after a specified
-        # size
-        content_autoclose = SpooledTemporaryFile()
+        # size. This file will be automatically deleted when closed by
+        # boto3 or after exiting the `with` statement if the boto3 is fixed
+        with SpooledTemporaryFile() as content_autoclose:
 
-        # Write our original content into our copy that will be closed by boto3
-        content_autoclose.write(content.read())
+            # Write our original content into our copy that will be closed by boto3
+            content_autoclose.write(content.read())
 
-        # Upload the object which will auto close the content_autoclose
-        # instance
-        super(CustomS3Boto3Storage, self)._save(name, content_autoclose)
-
-        # Cleanup if this is fixed upstream our duplicate should always close
-        if not content_autoclose.closed:
-            content_autoclose.close()
+            # Upload the object which will auto close the
+            # content_autoclose instance
+            return super(CustomS3Boto3Storage, self)._save(name, content_autoclose)
