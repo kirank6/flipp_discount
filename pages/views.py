@@ -1,13 +1,30 @@
+from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import PagesForm
-import subprocess 
-#from .process_item import 
+import subprocess
+import sys
+import re
+from urllib.request import urlretrieve 
+from requests.utils import requote_uri 
+python_path = sys.executable
+from os.path import abspath, dirname, join
+ 
 
-def get_price(item):
-    price = 12.99
-    url = "https://m.media-amazon.com/images/I/51DMel2czfL._AC_SX425_.jpg"
-    return price, url
+
+
+def get_price(item, zip_code):
+    output = subprocess.check_output([python_path, 'webpage_backend_use.py', item, zip_code], \
+                shell=True).decode('utf-8')
+    
+    output1 = output.split(', ')
+    merchant = output1[0].strip("(")
+    price = output1[1].strip(" '' ")
+    url1 = output1[2].replace(")","")
+    url2 = url1.strip()
+    url = url2. strip(" '' ")
+    
+    return merchant,price,url
 
 # Create your views here.
 def homePageView(request):
@@ -17,8 +34,7 @@ def homePageView(request):
             note = "Thank you! Your %s is  \
             loading!" %(filled_form.cleaned_data['item_name'],)
             new_form = PagesForm()
-            # script_function(filled_form)
-            return render(request, 'pages/home.html',{'pagesform':new_form,'note':note})
+        return render(request, 'pages/home.html',{'pagesform':new_form,'note':note})
     
     else:
         form = PagesForm()
@@ -26,16 +42,13 @@ def homePageView(request):
 
 def processView(request):
     context={}
-    item = request.POST.get('item_name', "you didnt input text")
-    price, imgurl = get_price(item)
+    item = request.POST.get('item_name')
+    zipcode = request.POST.get('zip_code')
+    merchant, price, imgurl = get_price(item, zipcode)
     context['price'] = price
-    context['item'] = item
+    context['merchant'] = merchant
     context['img'] = imgurl
+    context['item'] = item
 
     return render(request, 'pages/process.html', context)   
 
-# def script_function(post_from_form):
-#     print(post_from_form)
-#     return subprocess.check_call(['C:/Users/Ursa Major/Documents/Data_Science/Projects  \
-#                                   /SharpestMinds/Flipp_programs/webpage_backend_use.py'], post_from_form)
-    
