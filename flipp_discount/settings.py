@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     
     # added
     'pages',
-    'storages',
+        
 ]
 
 MIDDLEWARE = [
@@ -57,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'flipp_discount.urls'
@@ -127,13 +128,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/',
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles"),
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Uncomment if you have extra static files and a directory in your GitHub repo.
 # If you don't have this directory and have this uncommented your build will fail
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
-
-#DEFAULT_FILE_STORAGE='project.storage_backends.CustomS3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage',
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage',
