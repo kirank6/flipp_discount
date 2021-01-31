@@ -11,19 +11,23 @@ python_path = sys.executable
 from os.path import abspath, dirname, join
  
 
-
-
 def get_price(item, zip_code):
-    output = subprocess.check_output([python_path, 'webpage_backend_use.py', item, zip_code], \
-                shell=True).decode('utf-8')
     
+    output = subprocess.check_output([python_path, 'webpage_backend_use.py', item, zip_code], \
+                shell=False).decode('utf-8')
+    print('='*30)
+    print(len(output))
     output1 = output.split(', ')
     merchant = output1[0].strip("(")
     price = output1[1].strip(" '' ")
     url1 = output1[2].replace(")","")
     url2 = url1.strip()
     url = url2. strip(" '' ")
-    
+    '''
+    merchant='walmart'
+    price='12.99'
+    url='https://www.nescafe.com/sites/default/files/styles/product_recommendation_large/public/2020-04/NESCAF%C3%89%20Classic_0.png?itok=xEQ6xzPZ'
+    '''
     return merchant,price,url
 
 # Create your views here.
@@ -42,7 +46,10 @@ def homePageView(request):
 
 def processView(request):
     context={}
+    print('*'*30)
+    print(request)
     item = request.POST.get('item_name')
+    print(item)
     zipcode = request.POST.get('zip_code')
     merchant, price, imgurl = get_price(item, zipcode)
     context['price'] = price

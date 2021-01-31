@@ -30,4 +30,5 @@ def search(query, postal_code):
             scrape_item(x.get('flyer_item_id'))
             for x in data.get('items')
     ]
-#Output = search('apple',60565)    
+#output = search('apple','L6X4H8')
+#print(len(output))

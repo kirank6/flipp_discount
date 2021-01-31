@@ -241,6 +241,6 @@ def django_input(itemname, zipcode):
         
         return sorted_bestprice(df_best_price)[0]
     
-output_items = django_input(sys.argv[1], sys.argv[2])
-print(output_items)
+#output_items = django_input(sys.argv[1], sys.argv[2])
+#print(output_items)
 #rint(django_input('cheese', 60565))      
