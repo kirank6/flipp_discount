@@ -243,4 +243,4 @@ def django_input(itemname, zipcode):
     
 output_items = django_input(sys.argv[1], sys.argv[2])
 print(output_items)
-#rint(django_input('cheese', 60565))      
+#print(django_input('cheese', 60565))      
