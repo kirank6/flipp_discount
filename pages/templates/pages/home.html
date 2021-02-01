@@ -1,0 +1,19 @@
+<h1> Welcome to Sort App! </h1>
+  <p> Upon entering the name of grocery item and
+      zipcode, Sort app will return the lowest price item avialable among all
+      merchants from Flipp app and the name of the store.  
+   </p>
+<h2>{{ note }}</h2>
+
+<form action = "process", method = "POST">
+    {% csrf_token %}
+    {{ pagesform }}
+  {% comment %} <label for= "item_name"> Item_Name: </label>
+  <input id = "item_name", type = "text", name = "item_name">
+  <label for= "zip_code"> Zip_Code: </label>
+  <input id = "item_name", type = "decimal", name = "zip_code">
+  </select> {% endcomment %}
+  <input type = "submit", value = "Search">
+</form>
+
+<img src="https://www.freepnglogos.com/uploads/vegetables-png/buy-high-quality-organic-vegetables-and-fruits-online-7.png">

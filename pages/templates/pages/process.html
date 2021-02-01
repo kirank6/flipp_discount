@@ -1,0 +1,13 @@
+<h1> Thank you for using Sort app! </h1>
+{% if merchant == 'No Merchant' %}
+    <h2> This week, {{ item }} is not avilable.
+    </h2>
+    <img src={{ img }}>
+
+{% else %}
+
+<h2> This week, {{ item }} is avilable at {{ merchant }} with the best price {{ price }}. 
+</h2>
+<img src={{ img }}>
+ {% endif %}
+
