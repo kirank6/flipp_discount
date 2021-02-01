@@ -82,8 +82,13 @@ def django_input(item_name, zip_code):
     df_final = df_sel[df_sel['current_price'] != '']
     df_final = df_final.reset_index(drop=True)
     final_list = sorted_bestprice(df_final)
+    if final_list ==[]:
+        cor_text = ('No Merchant', '0.0', \
+                    'https://www.freepnglogos.com/uploads/vegetables-png/buy-high-quality-organic-vegetables-and-fruits-online-7.png')
+        return cor_text
     
     return final_list[0]
+
 output_items = django_input(sys.argv[1], sys.argv[2])
 print(output_items)    
     
