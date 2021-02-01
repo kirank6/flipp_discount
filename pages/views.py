@@ -9,26 +9,24 @@ from urllib.request import urlretrieve
 from requests.utils import requote_uri 
 python_path = sys.executable
 from os.path import abspath, dirname, join
- 
-
-
 
 def get_price(item, zip_code):
-    output = subprocess.check_output([python_path, 'webpage_backend_use.py', \
-            item, zip_code] \
-            ).decode('utf-8')
-    
-    output1 = output.split(', ')
-    merchant = output1[0].strip("(")
+    output = subprocess.Popen([python_path, 'wb_current_price.py', \
+            item, zip_code],\
+            shell = False, \
+            stdout = subprocess.PIPE,\
+            stderr = subprocess.PIPE, \
+            encoding='utf8')
+    stdout, stderr = output.communicate()            
+    output1 = stdout.split(', ')
+    merchant1 = output1[0].strip("(")
+    merchant = merchant1. strip(" '' ") 
     price = output1[1].strip(" '' ")
     url1 = output1[2].replace(")","")
     url2 = url1.strip()
     url = url2. strip(" '' ")  
-    mer_dummy = 'Walmart'
-    pri_dummy = '5.02'
-    url_dummy = 'http://f.wishabi.net/page_items/211690957/1611256526/extra_large.jpg'
-      
-    return mer_dummy,pri_dummy,url_dummy
+    #print(merchant, price, url)
+    return merchant, price, url
 
 # Create your views here.
 def homePageView(request):
