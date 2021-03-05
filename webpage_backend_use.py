@@ -18,7 +18,7 @@ warnings.filterwarnings(action='ignore')
 
 def select_df(list_dics_all):
             '''
-            Results a datafram of selected items reading a list of 
+            Results a dataframe of selected items reading a list of 
             dictionaries of extracted items.
             '''
             #Reading data from Output dictionary
@@ -259,5 +259,5 @@ def django_input(itemname, zipcode):
                       
         return final_list[0]
     
-output_items = django_input(sys.argv[1], sys.argv[2])
-print(output_items)      
+#output_items = django_input(sys.argv[1], sys.argv[2])
+#print(output_items)      

@@ -2,7 +2,8 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import PagesForm
-import subprocess
+import webpage_backend_use
+#import subprocess
 import sys
 import re
 from urllib.request import urlretrieve 
@@ -11,20 +12,24 @@ python_path = sys.executable
 from os.path import abspath, dirname, join
 
 def get_price(item, zip_code):
-    output = subprocess.Popen([python_path, 'webpage_backend_use.py', \
-            item, zip_code],\
-            shell = False, \
-            stdout = subprocess.PIPE,\
-            stderr = subprocess.PIPE, \
-            encoding='utf8')
-    stdout, stderr = output.communicate()            
-    output1 = stdout.split(', ')
-    merchant1 = output1[0].strip("(")
-    merchant = merchant1. strip(" '' ") 
-    price = output1[1].strip(" '' ")
-    url1 = output1[2].replace(")","")
-    url2 = url1.strip()
-    url = url2. strip(" '' ")  
+    # output = subprocess.Popen([python_path, 'webpage_backend_use.py', \
+    #         item, zip_code],\
+    #         shell = False, \
+    #         stdout = subprocess.PIPE,\
+    #         stderr = subprocess.PIPE, \
+    #         encoding='utf8')
+    output = webpage_backend_use.django_input(item, zip_code)
+    # stdout, stderr = output.communicate()            
+    # output1 = stdout.split(', ')
+    # merchant1 = output1[0].strip("(")
+    # merchant = merchant1. strip(" '' ") 
+    # price = output1[1].strip(" '' ")
+    # url1 = output1[2].replace(")","")
+    # url2 = url1.strip()
+    # url = url2. strip(" '' ") 
+    merchant = output[0]
+    price = output[1]
+    url = output[2] 
     #print(merchant, price, url)
     return merchant, price, url
 
