@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import PagesForm
 import webpage_backend_use
-#import subprocess
+import cosine_similarity_calc
 import sys
 import re
 from urllib.request import urlretrieve 
@@ -12,21 +12,7 @@ python_path = sys.executable
 from os.path import abspath, dirname, join
 
 def get_price(item, zip_code):
-    # output = subprocess.Popen([python_path, 'webpage_backend_use.py', \
-    #         item, zip_code],\
-    #         shell = False, \
-    #         stdout = subprocess.PIPE,\
-    #         stderr = subprocess.PIPE, \
-    #         encoding='utf8')
     output = webpage_backend_use.django_input(item, zip_code)
-    # stdout, stderr = output.communicate()            
-    # output1 = stdout.split(', ')
-    # merchant1 = output1[0].strip("(")
-    # merchant = merchant1. strip(" '' ") 
-    # price = output1[1].strip(" '' ")
-    # url1 = output1[2].replace(")","")
-    # url2 = url1.strip()
-    # url = url2. strip(" '' ") 
     merchant = output[0]
     price = output[1]
     url = output[2] 
@@ -52,6 +38,19 @@ def processView(request):
     item = request.POST.get('item_name')
     zipcode = request.POST.get('zip_code')
     merchant, price, imgurl = get_price(item, zipcode)
+    
+    if merchant !='No Merchant':
+        nei_items = cosine_similarity_calc.calc_cosim(item)
+        
+        for itm in nei_items:
+            nei_merchant, nei_price, nei_imgurl = get_price(itm, zipcode)
+            if nei_merchant != 'No Merchant':
+                break
+        context['nei_price'] = nei_price
+        context['nei_merchant'] = nei_merchant
+        context['nei_img'] = nei_imgurl
+        context['nei_item'] = itm
+    
     context['price'] = price
     context['merchant'] = merchant
     context['img'] = imgurl

@@ -1,4 +1,4 @@
-<h1> Thank you for using Snipp app! </h1>
+<h1> Thank you for using <i>Snipp</i> app! </h1>
 {% if merchant == 'No Merchant' %}
     <h2> This week, {{ item }} is not avilable.
     </h2>
@@ -9,5 +9,8 @@
 <h2> This week, {{ item }} is avilable at {{ merchant }} with the best price {{ price }}. 
 </h2>
 <img src={{ img }}>
- {% endif %}
-
+ 
+<h3> Recommended item, {{ nei_item }} is avilable at {{ nei_merchant }} with the best price {{ nei_price }}. 
+</h3>
+<img src={{ nei_img }}>
+{% endif %}
