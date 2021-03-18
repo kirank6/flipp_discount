@@ -5,12 +5,16 @@
     <img src={{ img }}>
 
 {% else %}
-
+ 
 <h2> This week, {{ item }} is avilable at {{ merchant }} with the best price {{ price }}. 
 </h2>
 <img src={{ img }}>
+ {% endif %}
  
+{% if merchant != 'No Merchant' and recomm != 'no_recomm' %} 
 <h3> Recommended item, {{ nei_item }} is avilable at {{ nei_merchant }} with the best price {{ nei_price }}. 
 </h3>
 <img src={{ nei_img }}>
+{% else %}
+<h3> For recommendation, there are no items on sale related to {{ item }} this week. </h3>
 {% endif %}

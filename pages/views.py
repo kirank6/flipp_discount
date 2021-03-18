@@ -41,16 +41,18 @@ def processView(request):
     
     if merchant !='No Merchant':
         nei_items = cosine_similarity_calc.calc_cosim(item)
-        
-        for itm in nei_items:
-            nei_merchant, nei_price, nei_imgurl = get_price(itm, zipcode)
-            if nei_merchant != 'No Merchant':
-                break
-        context['nei_price'] = nei_price
-        context['nei_merchant'] = nei_merchant
-        context['nei_img'] = nei_imgurl
-        context['nei_item'] = itm
-    
+        if nei_items != []:
+            for itm in nei_items:
+                nei_merchant, nei_price, nei_imgurl = get_price(itm, zipcode)
+                if nei_merchant != 'No Merchant':
+                    break
+            context['nei_price'] = nei_price
+            context['nei_merchant'] = nei_merchant
+            context['nei_img'] = nei_imgurl
+            context['nei_item'] = itm
+        else:
+            context['recomm'] = 'no_recomm'
+                                
     context['price'] = price
     context['merchant'] = merchant
     context['img'] = imgurl
