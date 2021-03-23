@@ -4,13 +4,16 @@
     <h2> This week, {{ item }} is not avilable.
     </h2>
     <img src={{ img }}>
+    
 
 {% else %}
  
 <h2> This week, {{ item }} is avilable at {{ merchant }} with the best price {{ price }}. 
 </h2>
 <img src={{ img }}>
-
+   <h2> {{ item }} </h2>
+<h2> {{ merchant }} </h2>
+      <h2> {{ price }} </h2>
 {% if nei_merchant == 'No Merchant' or recomm == 'no_recomm' %}
 <h3> For recommendation, there are no items on sale related to {{ item }} this week. </h3>
 
