@@ -1,27 +1,31 @@
-<h1> Thank you for using <i>Snipp</i> app! </h1>
+<h1> <i>Snipp</i> </h1>
 
+
+<h2> QUERY RESULT </h2>
 {% if merchant == 'No Merchant' %}
-    <h2> This week, {{ item }} is not avilable.
-    </h2>
     <img src={{ img }}>
-    
+    <h2 style="line-height:40%"> {{ item }}</h2>
+    <h2 style="line-height:40%"> Not avilable.</h2>
 
 {% else %}
- 
-<h2> This week, {{ item }} is avilable at {{ merchant }} with the best price {{ price }}. 
-</h2>
-<img src={{ img }}>
-   <h2> Query item: {{ item }} </h2>
-<h2> Merchant: {{ merchant }} </h2>
-      <h2> Price: {{ price }} </h2>
-{% if nei_merchant == 'No Merchant' or recomm == 'no_recomm' %}
-<h3> For recommendation, there are no items on sale related to {{ item }} this week. </h3>
-
-
+    <img src={{ img }}>
+    <h2 style="line-height:40%"> {{ item }} </h2>
+    <h2 style="line-height:40%"> {{ merchant }} </h2>
+    <h2 style="line-height:40%"> {{ price }} </h2>
+   
+{% if nei_merchant == 'No Merchant'%}
+<h2> RECOMMENDATION OF RELATED ITEM</h2>
+ <h2> {{nei_item}} </h2>
+ <h2> Not on Sale </h2>
+{% elif recomm == 'no_recomm' %}
+ <h2> RECOMMENDATION OF RELATED ITEM </h2>
+ <h2> Not avilable for {{item}} </h2>
 {% elif nei_merchant != 'No Merchant' or recomm != 'no_recomm' %} 
-<h3> Recommended item, {{ nei_item }} is avilable at {{ nei_merchant }} with the best price {{ nei_price }}. 
-</h3>
+<h2> RECOMMENDATION OF RELATED ITEM</h2>
 <img src={{ nei_img }}>
+<h2 style="line-height:40%"> {{ nei_item }} </h2>
+<h2 style="line-height:40%"> {{ nei_merchant }} </h2>
+<h2 style="line-height:40%"> {{ nei_price }} </h2>
 
 {% endif %}
 {% endif %}
