@@ -10,6 +10,7 @@ from urllib.request import urlretrieve
 from requests.utils import requote_uri 
 python_path = sys.executable
 from os.path import abspath, dirname, join
+from django.conf import settings
 from django.conf.urls.static import static
 
 
