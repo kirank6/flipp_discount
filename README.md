@@ -5,7 +5,7 @@
 This is a web application to search and find lowest price item from the 
 flipp app for a given zip code.
 ## Webpage to search the item
-![](static/images/webpage_snapshot_before.png)
+![](static/images/recomm_ss1.png)
 
 ## Webpage to display the searched item
-![](static/images/webpage_snapshot_after.png) 
+![](static/images/recomm_ss2.png) 
