@@ -6,6 +6,7 @@ Created on Wed Mar 10 16:42:49 2021
 """
 import pandas as pd
 import numpy as np
+import sklearn 
 from ast import literal_eval
 from sklearn.metrics.pairwise import cosine_similarity
 
