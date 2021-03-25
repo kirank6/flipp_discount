@@ -8,8 +8,14 @@
 <!-- Just an image -->
 
 {% load static %}
-<img src="{% static 'images/Snipp_logo.png' %}"/>
-
+{% comment %} <img src="{% static 'images/Snipp_logo.png' %}"/> {% endcomment %}
+<nav class="navbar navbar-dark bg-secondary">
+  
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'images/Snipp_logo.png' %}" alt="" width="200" height=100">
+    </a>
+  
+</nav>
 {% comment %} <img src="./images/Snipp_logo.png"> {% endcomment %}
 <h2>{{ note }}</h2>
 
