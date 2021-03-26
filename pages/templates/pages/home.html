@@ -6,17 +6,34 @@
 
 
 <!-- Just an image -->
-
+<!-- Just an image -->
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% comment %} <img src="{% static 'images/Snipp_logo.png' %}"/> {% endcomment %}
-<nav class="navbar navbar-dark bg-secondary">
-  
+  {% comment %} <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="#">
       <img src="{% static 'images/Snipp_logo.png' %}" alt="" width="200" height=100">
     </a>
-  
+    <a class="navbar-brand"> Welcome </a>
+  </nav> {% endcomment %}
+
+<!-- Image and text -->
+<nav class="navbar navbar-dark bg-primary", style="background-color: #e3f2fd;">
+  <a class="navbar-brand">
+    <img src="{% static 'images/Snipp_logo.png' %}" width="120" height="100" class="d-inline-block align-top" alt="">
+    <form enctype="multipart/form-data" action = "process", method = "POST">
+    {% csrf_token %}
+    {{ pagesform }}
+  {% comment %} <label for= "item_name"> Item_Name: </label>
+  <input id = "item_name", type = "text", name = "item_name">
+  <label for= "zip_code"> Zip_Code: </label>
+  <input id = "item_name", type = "decimal", name = "zip_code">
+  </select> {% endcomment %}
+    <input type = "submit", value = "Search">
+</form>
+  </a>
 </nav>
-{% comment %} <img src="./images/Snipp_logo.png"> {% endcomment %}
+
 <h2>{{ note }}</h2>
 
 <form enctype="multipart/form-data" action = "process", method = "POST">
@@ -29,5 +46,8 @@
   </select> {% endcomment %}
   <input type = "submit", value = "Search">
 </form>
+
+
+
 
 <img src="https://www.freepnglogos.com/uploads/vegetables-png/buy-high-quality-organic-vegetables-and-fruits-online-7.png">

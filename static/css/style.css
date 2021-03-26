@@ -1,0 +1,33 @@
+h1 a, h2 a {
+    color: #C25100;
+    font-family: 'Lobster';
+    font-size:26pt;
+}
+
+body {
+    padding-left: 15px;
+}
+
+.page-header {
+    background-color: #C25100;
+    margin-top: 0;
+    margin-bottom: 40px;
+    padding: 20px 20px 20px 40px;
+}
+
+.post-form textarea,
+.post-form input {
+    width: 100%;
+}
+
+.btn-default,
+.btn-default:visited {
+    color: #C25100;
+    background: none;
+    border-color: #C25100;
+}
+
+.btn-default:hover {
+    color: #FFFFFF;
+    background-color: #C25100;
+}
