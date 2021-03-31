@@ -6,7 +6,7 @@ h1, h2 {
 
 body {
     padding-left: 15px;
-    background-color: #f19292;
+    background-color: #e4e0e0f3;
 }
 
 .page-header {
@@ -49,13 +49,10 @@ body {
     text-decoration: none;
 }
 
-h1{
-    font-family: 'Lobster', cursive;
-}
-
-h2,
 h3,
 h4 {
+    color: #0d0764;
+    font-size:20pt;
     font-family: "Times New Roman", Serif;
 }
 
@@ -118,5 +115,5 @@ p {
   }
 
 body {
-    color: blue;
+    color: rgb(12, 7, 7);
   }

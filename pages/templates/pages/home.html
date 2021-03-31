@@ -1,6 +1,6 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+  
 {% comment %} <img src="{% static 'images/Snipp_logo.png' %}"/> {% endcomment %}
   {% comment %} <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="#">
@@ -9,25 +9,38 @@
     <a class="navbar-brand"> Welcome </a>
   </nav> {% endcomment %}
 
-<nav class="navbar navbar-dark bg-primary justify-content-between"
+<nav class="navbar navbar-light bg-light pull-right"
           style="background-color: #e3f2fd;">
-    <a class="navbar-brand"> <img src="{% static 'images/Snipp_logo.png' %}" width="120" height="100" class="d-inline-block align-top" alt="">
+          
+  <a class="navbar-brand"> <img src="{% static 'images/Snipp_logo.png' %}" 
+             width="120" height="100" class="d-inline-block align-top" alt="">
                     </a>
-    <form class="btn btn-primary btn-lg" enctype="multipart/form-data" action = "process", method = "POST">
+
+      <div class="btn-group pull-right">
+        <button type="button" class="btn btn-primary" href = "home.html">Home</button>
+        <button type="button" class="btn btn-primary">About</button>
+        <button type="button" class="btn btn-primary">Services</button>
+     </div>
+  <form class = 'form-inline' enctype="multipart/form-data" action = "process", method = "POST">
+           <i class="fa fa-align-right"></i> 
+                    {% csrf_token %} 
+                   {{ pagesform }}
+        <input type = "submit", value = "Search">
+  </form>
     
-                  {% csrf_token %}
-                  {{ pagesform }}
-               <input type = "submit", value = "Search">
-    </form>
+  
 </nav>
 
-<h2>{{ note }}</h2>
 
-<form enctype="multipart/form-data" action = "process", method = "POST">
+{% comment %} <h2>{{ note }}</h2> {% endcomment %}
+
+
+{% comment %} save this part {% endcomment %}
+{% comment %} <form enctype="multipart/form-data" action = "process", method = "POST">
     {% csrf_token %}
     {{ pagesform }}
   <input type = "submit", value = "Search">
-</form>
+</form> {% endcomment %}
 
 
 

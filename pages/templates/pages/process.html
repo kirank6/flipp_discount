@@ -11,28 +11,28 @@
 <h2> QUERY RESULT </h2>
 {% if merchant == 'No Merchant' %}
     <img src={{ img }}>
-    <h2 style="line-height:40%"> {{ item }}</h2>
-    <h2 style="line-height:40%"> Not avilable.</h2>
+    <h3 style="line-height:40%"> {{ item }}</h3>
+    <h3 style="line-height:40%"> Not avilable.</h3>
 
 {% else %}
     <img src={{ img }}>
-    <h2 style="line-height:40%"> {{ item }} </h2>
-    <h2 style="line-height:40%"> {{ merchant }} </h2>
-    <h2 style="line-height:40%"> {{ price }} </h2>
+    <h3 style="line-height:40%"> {{ item }} </h3>
+    <h3 style="line-height:40%"> {{ merchant }} </h3>
+    <h3 style="line-height:40%"> {{ price }} </h3>
    
 {% if nei_merchant == 'No Merchant'%}
 <h2> RECOMMENDATION OF RELATED ITEM</h2>
- <h2> {{nei_item}} </h2>
- <h2> Not on Sale </h2>
+ <h3> {{nei_item}} </h3>
+ <h3> Not on Sale </h3>
 {% elif recomm == 'no_recomm' %}
  <h2> RECOMMENDATION OF RELATED ITEM </h2>
- <h2> Not avilable for {{item}} </h2>
+ <h3> Not avilable for {{item}} </h3>
 {% elif nei_merchant != 'No Merchant' or recomm != 'no_recomm' %} 
 <h2> RECOMMENDATION OF RELATED ITEM</h2>
 <img src={{ nei_img }}>
-<h2 style="line-height:40%"> {{ nei_item }} </h2>
-<h2 style="line-height:40%"> {{ nei_merchant }} </h2>
-<h2 style="line-height:40%"> {{ nei_price }} </h2>
+<h3 style="line-height:40%"> {{ nei_item }} </h3>
+<h3 style="line-height:40%"> {{ nei_merchant }} </h3>
+<h3 style="line-height:40%"> {{ nei_price }} </h3>
 
 {% endif %}
 {% endif %}
