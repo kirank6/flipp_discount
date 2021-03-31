@@ -9,23 +9,16 @@
     <a class="navbar-brand"> Welcome </a>
   </nav> {% endcomment %}
 
-<!-- Image and text -->
-<nav class="navbar navbar-dark bg-primary justify-content-between", style="background-color: #e3f2fd;">
-  <a class="navbar-brand">
-      <img src="{% static 'images/Snipp_logo.png' %}" width="120" height="100" class="d-inline-block align-top" alt="">
-  </a>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-form">
-      <form class = "form-inline" enctype="multipart/form-data" action = "process", method = "POST">
-           {% csrf_token %}
-         {{ pagesform }}
-         
-         <input type = "submit", value = "Search">
-      </form>
-    </a>
-     </div>
-  </div>
+<nav class="navbar navbar-dark bg-primary justify-content-between"
+          style="background-color: #e3f2fd;">
+    <a class="navbar-brand"> <img src="{% static 'images/Snipp_logo.png' %}" width="120" height="100" class="d-inline-block align-top" alt="">
+                    </a>
+    <form class="btn btn-primary btn-lg" enctype="multipart/form-data" action = "process", method = "POST">
+    
+                  {% csrf_token %}
+                  {{ pagesform }}
+               <input type = "submit", value = "Search">
+    </form>
 </nav>
 
 <h2>{{ note }}</h2>
