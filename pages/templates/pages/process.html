@@ -1,38 +1,45 @@
-{% comment %} <h1> <i>Snipp</i> </h1> {% endcomment %}
+
 {% load static %}
 
-<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-  <img src="{% static 'images/Snipp_logo.png' %}"/>
-</nav>
+<nav class="navbar fixed-top navbar-light bg-light">
+  <h1 class="navbar-brand">Snipp</h1>
+  </nav> 
+
+<p> Snipp presents the lowest price item of your search query 
+          among several items on sale. Recommended item based on recipe is
+          also on sale.
+        </p>
 
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-
-<h2> QUERY RESULT </h2>
+ <div class="left">
+<h2> Query Result</h2>
 {% if merchant == 'No Merchant' %}
-    <img src={{ img }}>
+    <img src={{ img }} >
     <h3 style="line-height:40%"> {{ item }}</h3>
     <h3 style="line-height:40%"> Not avilable.</h3>
 
 {% else %}
-    <img src={{ img }}>
+    <img src={{ img }} >
     <h3 style="line-height:40%"> {{ item }} </h3>
     <h3 style="line-height:40%"> {{ merchant }} </h3>
     <h3 style="line-height:40%"> {{ price }} </h3>
-   
+</div>
+
+<div class="right">   
 {% if nei_merchant == 'No Merchant'%}
-<h2> RECOMMENDATION OF RELATED ITEM</h2>
+<h2>Recommendation of Related</h2>
  <h3> {{nei_item}} </h3>
  <h3> Not on Sale </h3>
 {% elif recomm == 'no_recomm' %}
- <h2> RECOMMENDATION OF RELATED ITEM </h2>
+ <h2> Recommendation of Related Item </h2>
  <h3> Not avilable for {{item}} </h3>
 {% elif nei_merchant != 'No Merchant' or recomm != 'no_recomm' %} 
-<h2> RECOMMENDATION OF RELATED ITEM</h2>
-<img src={{ nei_img }}>
+<h2> Recommendation of Related Item</h2>
+<img src={{ nei_img }} >
 <h3 style="line-height:40%"> {{ nei_item }} </h3>
 <h3 style="line-height:40%"> {{ nei_merchant }} </h3>
 <h3 style="line-height:40%"> {{ nei_price }} </h3>
-
 {% endif %}
 {% endif %}
+</div>

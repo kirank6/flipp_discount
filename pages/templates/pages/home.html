@@ -1,40 +1,24 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-  
+<link rel="stylesheet" href="{% static 'css/style.css' %}">  
 {% comment %} <img src="{% static 'images/Snipp_logo.png' %}"/> {% endcomment %}
   {% comment %} <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="#">
       <img src="{% static 'images/Snipp_logo.png' %}" alt="" width="200" height=100">
     </a>
     <a class="navbar-brand"> Welcome </a>
-  </nav> {% endcomment %}
-
-<nav class="navbar navbar-light bg-light pull-right"
-          style="background-color: #e3f2fd;">
-          
-  <a class="navbar-brand"> <img src="{% static 'images/Snipp_logo.png' %}" 
-             width="120" height="100" class="d-inline-block align-top" alt="">
-                    </a>
-
-      <div class="btn-group pull-right">
-        <button type="button" class="btn btn-primary" href = "home.html">Home</button>
-        <button type="button" class="btn btn-primary">About</button>
-        <button type="button" class="btn btn-primary">Services</button>
-     </div>
-  <form class = 'form-inline' enctype="multipart/form-data" action = "process", method = "POST">
-           <i class="fa fa-align-right"></i> 
-                    {% csrf_token %} 
+  </nav> {% endcomment %}          
+  <nav class="navbar fixed-top navbar-light bg-light">
+  <h1 class="navbar-brand">Snipp</h1>
+  </nav>       
+  <p> Snipp is for saving time and finding deals on items you need
+        from retailers near you. 
+        </p>           
+ <form class = 'form-inline' enctype="multipart/form-data" action = "process", method = "POST">
+                 {% csrf_token %} 
                    {{ pagesform }}
         <input type = "submit", value = "Search">
   </form>
-    
-  
-</nav>
-
-
 {% comment %} <h2>{{ note }}</h2> {% endcomment %}
-
-
 {% comment %} save this part {% endcomment %}
 {% comment %} <form enctype="multipart/form-data" action = "process", method = "POST">
     {% csrf_token %}
@@ -43,6 +27,8 @@
 </form> {% endcomment %}
 
 
+<img src="https://www.freepnglogos.com/uploads/vegetables-png/buy-high-quality-organic-vegetables-and-fruits-online-7.png" class="center">
 
-
-<img src="https://www.freepnglogos.com/uploads/vegetables-png/buy-high-quality-organic-vegetables-and-fruits-online-7.png">
+ <p> Real time update from weekly-ads on 
+        <a href="https://flipp.com/home">Flipp website</a>
+        .</p> 
