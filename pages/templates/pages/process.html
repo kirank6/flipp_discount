@@ -1,5 +1,6 @@
 
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 <nav class="navbar fixed-top navbar-light bg-light">
   <h1 class="navbar-brand">Snipp</h1>
@@ -9,16 +10,14 @@
           among several items on sale. 
         Recommended item is also on sale which is selected 
         based related recipe with the query item.
-        </p>
+  </p>
 
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-
- <div class="left">
+<div class="left">
 <h2> Query Result</h2>
 {% if merchant == 'No Merchant' %}
     <img src={{ img }} >
     <h3 style="line-height:40%"> {{ item }}</h3>
-    <h3 style="line-height:40%"> Not avilable.</h3>
+    <h3 style="line-height:40%"> Not available.</h3>
 
 {% else %}
     <img src={{ img }} >
@@ -34,7 +33,7 @@
  <h3> Not on Sale </h3>
 {% elif recomm == 'no_recomm' %}
  <h2> Recommendation of Related Item </h2>
- <h3> Not avilable for {{item}} </h3>
+ <h3> Not available for {{item}} </h3>
 {% elif nei_merchant != 'No Merchant' or recomm != 'no_recomm' %} 
 <h2> Recommendation of Related Item</h2>
 <img src={{ nei_img }} >

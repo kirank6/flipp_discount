@@ -1,5 +1,5 @@
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">  
+               {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
 {% comment %} <img src="{% static 'images/Snipp_logo.png' %}"/> {% endcomment %}
   {% comment %} <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="#">
@@ -18,7 +18,7 @@
                    {{ pagesform }}
         <input type = "submit", value = "Search">
   </form>
-{% comment %} <h2>{{ note }}</h2> {% endcomment %}
+ <h2>{{ note }}</h2>
 {% comment %} save this part {% endcomment %}
 {% comment %} <form enctype="multipart/form-data" action = "process", method = "POST">
     {% csrf_token %}

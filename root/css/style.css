@@ -1,0 +1,59 @@
+h1{
+    color: #C25100;
+    font-family: 'Lobster',cursive;
+    font-size:50pt;
+}
+
+h2 {
+    color: #007bc2;
+    font-family: 'Lobster',Fantasy;
+    font-size:30pt;
+}
+
+body {
+    padding-left: 15px;
+    background-color: #e4e0e0f3;
+    background: radial-gradient(rgb(128, 123, 123), rgb(125, 200, 243), rgb(207, 231, 207));
+}
+
+h3,
+h4 {
+    color: #0d0764;
+    font-size:20pt;
+    font-family: "Times New Roman", Serif;
+}
+
+p {
+    color: rgb(21, 10, 66);
+    font-family: 'Lobster',Cursive;
+  }
+
+body {
+    color: rgb(201, 98, 98);
+    font-size:20pt;
+  }
+  
+.form-inline textarea,  
+.form-inline input{
+    width: 15%;
+    height: 6%;
+    color: #be20cc;
+    font-size: 24pt;
+    margin-right: 5px;
+ }
+
+ .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+.left {
+    float:left;
+    margin-left: 100px;
+}
+.right {
+    float:right;
+    margin-right: 100px;
+} 
