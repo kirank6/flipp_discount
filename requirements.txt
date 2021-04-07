@@ -40,8 +40,10 @@ lazy-object-proxy==1.4.3
 matplotlib==3.3.4
 mccabe==0.6.1
 nginx==0.0.1
+npm==0.1.1
 numpy==1.19.5
 oauthlib==3.1.0
+optional-django==0.1.0
 pandas==1.2.1
 Pillow==8.1.0
 psycopg2==2.8.6
